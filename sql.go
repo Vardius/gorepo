@@ -4,12 +4,12 @@ import (
 	"database/sql"
 	"reflect"
 
-	"github.com/vardius/query"
+	"github.com/vardius/goquery"
 )
 
 type mysqlRepository struct {
 	db      *sql.DB
-	builder query.Builder
+	builder goquery.Builder
 }
 
 var NewSQL = newRepository
@@ -32,5 +32,5 @@ func (repo *mysqlRepository) Remove(ids ...int64) (interface{}, error) {
 }
 
 func newRepository(db *sql.DB, t reflect.Type) Repository {
-	return &mysqlRepository{db, query.New(t)}
+	return &mysqlRepository{db, goquery.New(t)}
 }
