@@ -2,6 +2,7 @@ package gorepo
 
 import (
 	"database/sql"
+	"errors"
 	"reflect"
 
 	"github.com/vardius/goquery"
@@ -28,7 +29,19 @@ func (repo *mysqlRepository) Save(v interface{}) error {
 }
 
 func (repo *mysqlRepository) Remove(ids ...int64) (interface{}, error) {
-	return repo.builder.Reset().Delete().Where("id IN (?)").SetParameters(ids).GetQuery().Execute(repo.db)
+	length := len(ids)
+	if length < 1 {
+		return nil, errors.New("sql gorepo: not enought arguments")
+	}
+	s := make([]interface{}, length)
+	marks := "?"
+	for i, v := range ids {
+		if i > 0 {
+			marks += ",?"
+		}
+		s[i] = v
+	}
+	return repo.builder.Reset().Delete().Where("id IN (" + marks + ")").SetParameters(s...).GetQuery().Execute(repo.db)
 }
 
 func newRepository(db *sql.DB, t reflect.Type) Repository {
