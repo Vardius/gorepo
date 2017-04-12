@@ -1,6 +1,6 @@
 Vardius - gorepo
 ================
-[![Build Status](https://travis-ci.org/vardius/gorepo.svg?branch=master)](https://travis-ci.org/vardius/gorepo) [![](https://godoc.org/github.com/vardius/gorepo?status.svg)](http://godoc.org/github.com/vardius/gorepo) [![Coverage Status](https://coveralls.io/repos/github/Vardius/gorepo/badge.svg?branch=master)](https://coveralls.io/github/vardius/gorepo?branch=master)
+[![Build Status](https://travis-ci.org/vardius/gorepo.svg?branch=master)](https://travis-ci.org/vardius/gorepo) [![](https://godoc.org/github.com/vardius/gorepo?status.svg)](http://godoc.org/github.com/vardius/gorepo) [![Coverage Status](https://coveralls.io/repos/github/vardius/gorepo/badge.svg?branch=master)](https://coveralls.io/github/vardius/gorepo?branch=master)
 
 Go repository interface.
 
